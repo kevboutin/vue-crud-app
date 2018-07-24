@@ -19,8 +19,8 @@
             <td>{{ post.subject }}</td>
             <td>{{ post.updatedAt }}</td>
             <td class="text-right">
-              <a href="#" @click.prevent="populatePostToEdit(post)">Edit</a> -
-              <a href="#" @click.prevent="deletePost(post.id)">Delete</a>
+              <a href="#" @click.prevent="populatePostToEdit(post)"><b-button size="sm" variant="outline-primary">Edit</b-button></a> &nbsp;
+              <a href="#" @click.prevent="deletePost(post.id)"><b-button size="sm" variant="warning">Delete</b-button></a>
             </td>
           </tr>
           </tbody>
@@ -36,9 +36,9 @@
               <b-form-textarea rows="4" v-model="model.body"></b-form-textarea>
             </b-form-group>
             <div>
+              <b-button v-if="model.id" type="button" variant="secondary" @click.prevent="onCancel">Cancel Edit</b-button>
               <b-button v-if="model.id" type="submit" variant="primary">Save Edit</b-button>
               <b-button v-else type="submit" variant="primary">Save Post</b-button>
-              <b-button v-if="model.id" type="button" variant="secondary" @click.prevent="onCancel">Cancel Edit</b-button>
             </div>
             <div>
               <b-modal id="modal-center" ref="confirmModal" centered title="Delete Confirmation" @ok="handleOk">
@@ -109,5 +109,13 @@
 <style>
   h1, .h1 {
     font-size: 1.6rem;
+  }
+  thead {
+    background-color: rgba(0, 0, 0, 0.09);
+  }
+  .table {
+    outline-style: solid;
+    outline-color: #ddd;
+    outline-width: thin;
   }
 </style>
