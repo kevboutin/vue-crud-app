@@ -8,7 +8,10 @@
 # install dependencies
 npm install
 
-# serve with hot reload at localhost:8080
+# run the back-end server on port 8081
+node ./src/server
+
+# in a different terminal, serve the UI with hot reload at localhost:8080
 npm run dev
 
 # build for production with minification
