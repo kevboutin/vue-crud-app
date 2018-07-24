@@ -36,7 +36,8 @@
               <b-form-textarea rows="4" v-model="model.body"></b-form-textarea>
             </b-form-group>
             <div>
-              <b-button type="submit" variant="primary">Save Post</b-button>
+              <b-button v-if="model.id" type="submit" variant="primary">Save Edit</b-button>
+              <b-button v-else type="submit" variant="primary">Save Post</b-button>
               <b-button v-if="model.id" type="button" variant="secondary" @click.prevent="onCancel">Cancel Edit</b-button>
             </div>
             <div>
