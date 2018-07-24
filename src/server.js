@@ -17,7 +17,7 @@ const database = new Sequelize({
 // Define our Post model
 // id, createdAt, and updatedAt are added by sequelize automatically
 const Post = database.define('posts', {
-  title: Sequelize.STRING,
+  subject: Sequelize.STRING,
   body: Sequelize.TEXT
 });
 

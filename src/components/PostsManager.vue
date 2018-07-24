@@ -8,7 +8,7 @@
           <thead>
           <tr>
             <th>Id</th>
-            <th>Title</th>
+            <th>Subject</th>
             <th>Updated At</th>
             <th>&nbsp;</th>
           </tr>
@@ -16,7 +16,7 @@
           <tbody>
           <tr v-for="post in posts" :key="post.id">
             <td>{{ post.id }}</td>
-            <td>{{ post.title }}</td>
+            <td>{{ post.subject }}</td>
             <td>{{ post.updatedAt }}</td>
             <td class="text-right">
               <a href="#" @click.prevent="populatePostToEdit(post)">Edit</a> -
@@ -29,14 +29,19 @@
       <b-col lg="3">
         <b-card :title="(model.id ? 'Edit Post ID#' + model.id : 'New Post')">
           <form @submit.prevent="savePost">
-            <b-form-group label="Title">
-              <b-form-input type="text" v-model="model.title"></b-form-input>
+            <b-form-group label="Subject">
+              <b-form-input type="text" v-model="model.subject"></b-form-input>
             </b-form-group>
             <b-form-group label="Body">
               <b-form-textarea rows="4" v-model="model.body"></b-form-textarea>
             </b-form-group>
             <div>
               <b-btn type="submit" variant="success">Save Post</b-btn>
+            </div>
+            <div>
+              <b-modal id="modal-center" ref="confirmModal" centered title="Delete Confirmation" @ok="handleOk">
+                <p class="modal-text">Are you sure you want to delete this post?</p>
+              </b-modal>
             </div>
           </form>
         </b-card>
@@ -52,6 +57,7 @@
     data() {
       return {
         loading: false,
+        deleteId: null,
         posts: [],
         model: {}
       };
@@ -61,6 +67,7 @@
     },
     methods: {
       async refreshPosts() {
+        this.$refs.confirmModal.hide();
         this.loading = true;
         this.posts = await api.getPosts();
         this.loading = false;
@@ -80,16 +87,22 @@
         await this.refreshPosts();
       },
       async deletePost(id) {
-        // eslint-disable-next-line
-        if (confirm('Are you sure you want to delete this post?')) {
-          // if we are editing a post we deleted, remove it from the form.
-          if (this.model.id === id) {
-            this.model = {};
-          }
-          await api.deletePost(id);
+        this.deleteId = id;
+        this.$refs.confirmModal.show();
+      },
+      async handleOk() {
+        if (this.deleteId) {
+          await api.deletePost(this.deleteId);
           await this.refreshPosts();
+          this.$refs.confirmModal.hide();
         }
       }
     }
   };
 </script>
+
+<style>
+h1, .h1 {
+  font-size: 1.6rem;
+}
+</style>

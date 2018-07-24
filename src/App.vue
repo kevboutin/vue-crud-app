@@ -28,9 +28,3 @@
     }
   };
 </script>
-
-<style>
-  h1 {
-    font-size: 1.6rem;
-  }
-</style>
