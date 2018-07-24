@@ -36,7 +36,8 @@
               <b-form-textarea rows="4" v-model="model.body"></b-form-textarea>
             </b-form-group>
             <div>
-              <b-btn type="submit" variant="success">Save Post</b-btn>
+              <b-button type="submit" variant="primary">Save Post</b-button>
+              <b-button v-if="model.id" type="button" variant="secondary" @click.prevent="onCancel">Cancel Edit</b-button>
             </div>
             <div>
               <b-modal id="modal-center" ref="confirmModal" centered title="Delete Confirmation" @ok="handleOk">
@@ -86,6 +87,9 @@
         this.model = {}; // reset form
         await this.refreshPosts();
       },
+      async onCancel() {
+        this.model = {};
+      },
       async deletePost(id) {
         this.deleteId = id;
         this.$refs.confirmModal.show();
@@ -102,7 +106,7 @@
 </script>
 
 <style>
-h1, .h1 {
-  font-size: 1.6rem;
-}
+  h1, .h1 {
+    font-size: 1.6rem;
+  }
 </style>
