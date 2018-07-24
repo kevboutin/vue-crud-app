@@ -5,7 +5,7 @@
       <b-navbar-brand to="/">Vue CRUD App</b-navbar-brand>
       <b-collapse is-nav id="nav_collapse">
         <b-navbar-nav>
-          <b-nav-item to="/">Home</b-nav-item>
+          <b-nav-item to="/" exact>Home</b-nav-item>
           <b-nav-item to="/posts-manager">Posts Manager</b-nav-item>
         </b-navbar-nav>
       </b-collapse>

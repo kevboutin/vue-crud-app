@@ -27,7 +27,7 @@
         </table>
       </b-col>
       <b-col lg="3">
-        <b-card :title="(model.id ? 'Edit Post ID#' + model.id : 'New Post')">
+        <b-card :title="(model.id ? 'Edit Post Id: ' + model.id : 'New Post')">
           <form @submit.prevent="savePost">
             <b-form-group label="Subject">
               <b-form-input type="text" v-model="model.subject"></b-form-input>
@@ -69,7 +69,7 @@
     },
     methods: {
       async refreshPosts() {
-        this.$refs.confirmModal.hide();
+        console.log('refreshing posts');
         this.loading = true;
         this.posts = await api.getPosts();
         this.loading = false;
