@@ -7,7 +7,7 @@
         <table class="table table-striped">
           <thead>
           <tr>
-            <th>ID</th>
+            <th>Id</th>
             <th>Title</th>
             <th>Updated At</th>
             <th>&nbsp;</th>
