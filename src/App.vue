@@ -43,11 +43,11 @@
   .header-panel {
     width: 100%;
     background-color: #eee;
-    padding: 1rem;
-    border-bottom: 1px solid #999;
+    padding: 0.8rem;
+    border-bottom: 1px solid #ddd;
   }
   h1, .h1 {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
     text-align: center;
   }
 </style>
