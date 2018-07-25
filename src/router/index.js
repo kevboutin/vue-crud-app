@@ -6,20 +6,20 @@ import PostsManager from '@/components/PostsManager';
 Vue.use(Router);
 
 export default new Router({
-  mode: 'history',
-  routes: [
-    {
-      path: '/',
-      name: 'Hello',
-      component: Hello
-    },
-    {
-      path: '/posts-manager',
-      name: 'PostsManager',
-      component: PostsManager,
-      meta: {
-        requiresAuth: false
-      }
-    }
-  ]
+    mode: 'history',
+    routes: [
+        {
+            path: '/',
+            name: 'Hello',
+            component: Hello
+        },
+        {
+            path: '/posts-manager',
+            name: 'PostsManager',
+            component: PostsManager,
+            meta: {
+                requiresAuth: false
+            }
+        }
+    ]
 });
