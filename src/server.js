@@ -28,14 +28,14 @@ epilogue.initialize({
 });
 
 // Create the dynamic REST resource for our Post model
-const userResource = epilogue.resource({
+epilogue.resource({
     model: Post,
     endpoints: ['/posts', '/posts/:id']
 });
 
 // Resets the database and launches the express app on :8081
 database
-    .sync({ force: true })
+    .sync({force: true})
     .then(() => {
         app.listen(8081, () => {
             console.log('listening to port localhost:8081');
