@@ -1,6 +1,9 @@
 <template>
   <div class="container-fluid mt-4">
-    <h1 class="h1">Posts Manager</h1>
+    <div class="search-panel col-sm-3 form-group">
+      <label for="search-element">Subject Search</label>
+      <input v-model="searchKey" class="form-control" id="search-element"/>
+    </div>
     <b-alert :show="loading" variant="info">Loading...</b-alert>
     <b-row>
       <b-col>
@@ -14,7 +17,7 @@
           </tr>
           </thead>
           <tbody>
-          <tr v-for="post in posts" :key="post.id">
+          <tr v-for="post in filteredPosts" :key="post.id">
             <td>{{ post.id }}</td>
             <td>{{ post.subject }}</td>
             <td>{{ post.updatedAt }}</td>
@@ -60,18 +63,33 @@
       return {
         loading: false,
         deleteId: null,
+        searchKey: null,
         posts: [],
+        // filteredPosts: [],
         model: {}
       };
     },
     async created() {
       this.refreshPosts();
     },
+    computed: {
+      filteredPosts: function () {
+        const self = this;
+        console.log(self.posts, self.searchKey);
+        if (!self.searchKey) {
+          return self.posts;
+        }
+        return self.posts.filter(function (post) {
+          return post.subject.toLowerCase().indexOf(self.searchKey.toLowerCase()) !== -1;
+        });
+      }
+    },
     methods: {
       async refreshPosts() {
         console.log('refreshing posts');
         this.loading = true;
         this.posts = await api.getPosts();
+        // this.filteredPosts = this.filterPosts();
         this.loading = false;
       },
       async populatePostToEdit(post) {
@@ -107,9 +125,6 @@
 </script>
 
 <style>
-  h1, .h1 {
-    font-size: 1.6rem;
-  }
   thead {
     background-color: rgba(0, 0, 0, 0.09);
   }

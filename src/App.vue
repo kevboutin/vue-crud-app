@@ -5,11 +5,14 @@
       <b-navbar-brand to="/">Vue CRUD App</b-navbar-brand>
       <b-collapse is-nav id="nav_collapse">
         <b-navbar-nav>
-          <b-nav-item to="/" exact>Home</b-nav-item>
-          <b-nav-item to="/posts-manager">Posts Manager</b-nav-item>
+          <b-nav-item to="/" @click="hideHeader" exact>Home</b-nav-item>
+          <b-nav-item to="/posts-manager" @click="showHeader">Posts Manager</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
+    <div class="header-panel" v-if="visibleHeader">
+      <h1 class="h1">Posts Manager</h1>
+    </div>
     <!-- routes will be rendered here -->
     <router-view />
   </div>
@@ -20,11 +23,33 @@
     name: 'app',
     data() {
       return {
+        visibleHeader: false
       };
     },
     watch: {
     },
     methods: {
+      hideHeader() {
+        this.visibileHeader = false;
+        console.log('Header should not be visible:', this.visibileHeader);
+      },
+      showHeader() {
+        this.visibileHeader = true;
+        console.log('Header should be visible:', this.visibileHeader);
+      }
     }
   };
 </script>
+
+<style>
+  .header-panel {
+    width: 100%;
+    background-color: #eee;
+    padding: 1rem;
+    border-bottom: 1px solid #999;
+  }
+  h1, .h1 {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+</style>
