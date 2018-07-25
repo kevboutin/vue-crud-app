@@ -10,7 +10,7 @@
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
-    <div class="header-panel" v-if="visibleHeader">
+    <div class="header-panel" v-show="visibleHeader">
       <h1 class="h1">Posts Manager</h1>
     </div>
     <!-- routes will be rendered here -->
