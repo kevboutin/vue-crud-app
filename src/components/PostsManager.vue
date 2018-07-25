@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid mt-4">
+  <div class="container-fluid mt-4 app-container">
     <div class="search-panel col-sm-3 form-group">
       <label for="search-element">Subject Search</label>
       <input v-model="searchKey" class="form-control" id="search-element"/>
@@ -22,8 +22,9 @@
             <td>{{ post.subject }}</td>
             <td>{{ post.updatedAt }}</td>
             <td class="text-right">
-              <a href="#" @click.prevent="populatePostToEdit(post)"><b-button size="sm" variant="outline-primary">Edit</b-button></a> &nbsp;
-              <a href="#" @click.prevent="deletePost(post.id)"><b-button size="sm" variant="warning">Delete</b-button></a>
+              <a href="#" @click.prevent="populatePostToEdit(post)"><b-button size="sm" variant="warning">Edit</b-button></a>
+              <span>&nbsp;</span>
+              <a href="#" @click.prevent="deletePost(post.id)"><b-button size="sm" variant="danger">Delete</b-button></a>
             </td>
           </tr>
           </tbody>
@@ -124,9 +125,15 @@
   thead {
     background-color: rgba(0, 0, 0, 0.09);
   }
+  td {
+    white-space: nowrap;
+  }
   .table {
     outline-style: solid;
     outline-color: #ddd;
     outline-width: thin;
+  }
+  .app-container {
+    margin-bottom: 1rem;
   }
 </style>
