@@ -65,7 +65,6 @@
         deleteId: null,
         searchKey: null,
         posts: [],
-        // filteredPosts: [],
         model: {}
       };
     },
@@ -75,7 +74,6 @@
     computed: {
       filteredPosts: function () {
         const self = this;
-        console.log(self.posts, self.searchKey);
         if (!self.searchKey) {
           return self.posts;
         }
@@ -86,10 +84,8 @@
     },
     methods: {
       async refreshPosts() {
-        console.log('refreshing posts');
         this.loading = true;
         this.posts = await api.getPosts();
-        // this.filteredPosts = this.filterPosts();
         this.loading = false;
       },
       async populatePostToEdit(post) {
