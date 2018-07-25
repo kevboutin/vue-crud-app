@@ -20,7 +20,7 @@
           <tr v-for="post in filteredPosts" :key="post.id">
             <td>{{ post.id }}</td>
             <td>{{ post.subject }}</td>
-            <td>{{ post.updatedAt }}</td>
+            <td>{{ formatDate(post.updatedAt) }}</td>
             <td class="text-right">
               <a href="#" @click.prevent="populatePostToEdit(post)"><b-button size="sm" variant="warning">Edit</b-button></a>
               <span>&nbsp;</span>
@@ -58,6 +58,7 @@
 
 <script>
   import api from '@/api';
+  import moment from 'moment';
 
   export default {
     data() {
@@ -84,6 +85,13 @@
       }
     },
     methods: {
+      formatDate(date) {
+        if (date) {
+          return moment(date).format('MMMM D YYYY, h:mm:ss a');
+        } else {
+          return '';
+        }
+      },
       async refreshPosts() {
         this.loading = true;
         this.posts = await api.getPosts();
