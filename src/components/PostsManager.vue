@@ -141,9 +141,7 @@
         white-space: nowrap;
     }
     .table {
-        outline-style: solid;
-        outline-color: #ddd;
-        outline-width: thin;
+        outline: thin solid #ddd;
     }
     .app-container {
         margin-bottom: 1rem;
