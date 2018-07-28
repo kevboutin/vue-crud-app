@@ -14,6 +14,8 @@ export default {
             headers: {}
         }).then((req) => {
             return req.data;
+        }).catch((err) => {
+            console.log(`Caught error invoking API using method of ${method} on resource of ${resource}.`, err);
         });
     },
     createPost(data) {
