@@ -15,7 +15,7 @@ const database = new Sequelize({
 });
 
 // Define our Post model.
-// Id, createdAt, and updatedAt column values are added by sequelize automatically.
+// The id, createdAt, and updatedAt column values are added by sequelize automatically.
 const Post = database.define('posts', {
     subject: Sequelize.STRING,
     body: Sequelize.TEXT
@@ -38,6 +38,6 @@ database
     .sync({force: true})
     .then(() => {
         app.listen(8081, () => {
-            console.log('listening to port localhost:8081');
+            console.log('Listening at localhost:8081');
         });
     });
