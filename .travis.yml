@@ -4,4 +4,4 @@ node_js:
 - "node"
 install:
 - npm install
-script: npm run dist
+script: npm run build
