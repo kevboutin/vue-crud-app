@@ -2,7 +2,7 @@
 
 # vue-crud-app
 
-> A Vue.js project designed to showcase a CRUD application. CRUD is an acronym for Create, Update and Delete and are the four basic functions associated with persistent storage.
+> A Vue.js project designed to showcase a CRUD application. CRUD is an acronym for Create, Read, Update and Delete and are the four basic functions associated with persistent storage.
 
 ## Getting Started
 
