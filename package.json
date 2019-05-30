@@ -18,7 +18,7 @@
         "cors": "^2.8.4",
         "epilogue": "^0.7.1",
         "moment": "^2.22.2",
-        "sequelize": "^4.37.6",
+        "sequelize": "^4.44.0",
         "sqlite3": "^4.0.2",
         "vue": "^2.5.2",
         "vue-router": "^3.0.1"
