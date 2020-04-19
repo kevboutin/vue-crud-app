@@ -34,6 +34,7 @@ module.exports = {
         'func-names': 'off',
         'func-call-spacing': ['error', 'never'],
         'handle-callback-err': 'error',
+        'indent': ['error', 4],
         'key-spacing': ['error', {'beforeColon': false, 'afterColon': true}],
         'keyword-spacing': [2, {'before': true, 'after': true}],
         'max-len': [
