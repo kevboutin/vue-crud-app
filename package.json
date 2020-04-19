@@ -14,13 +14,13 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
-    "axios": "^0.18.0",
-    "bootstrap": "^4.1.0",
-    "bootstrap-vue": "^2.0.0-rc.7",
+    "axios": "^0.18.1",
+    "bootstrap": "^4.4.1",
+    "bootstrap-vue": "^2.11.0",
     "cors": "^2.8.4",
     "finale-rest": "^1.0.6",
     "moment": "^2.24.0",
-    "sequelize": "^4.37.6",
+    "sequelize": "^4.44.4",
     "sqlite3": "^4.1.1",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
