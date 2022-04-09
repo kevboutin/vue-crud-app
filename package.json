@@ -19,7 +19,7 @@
     "bootstrap-vue": "^2.11.0",
     "cors": "^2.8.4",
     "finale-rest": "^1.0.6",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "sequelize": "^5.15.1",
     "sqlite3": "^4.1.1",
     "vue": "^2.5.2",
